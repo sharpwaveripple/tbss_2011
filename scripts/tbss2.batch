@@ -1,0 +1,32 @@
+#!/bin/bash
+
+#PBS -N tbss_2
+#PBS -q batch
+#PBS -l nodes=1:ppn=4
+#PBS -l walltime=48:00:00
+#PBS -l mem=8gb
+#PBS -j oe
+#PBS -o /home/mrphys/jontay/tmp
+
+module load ANTs
+
+tp=2011
+root=/project/3015006.07
+project=$root/JT/tbss_${tp}/
+id_file=$project/dti_${tp}.txt
+subj_list=($(cat $id_file))
+subj=${subj_list[${PBS_ARRAYID}]}
+subj_dir=$root/Data/$subj/$tp
+output_dir=$project/nlin_standard
+std=/opt/fsl/6.0.0/data/standard/FMRIB58_FA_1mm.nii.gz
+
+cd $subj_dir
+
+dtifit -k dwi_brain.nii.gz -o dti -m nodif_brain_mask.nii.gz -r bvecs -b bvals
+
+fslmaths dti_FA.nii.gz -thr 0 -uthr 1 dti_FA_thr
+
+antsRegistrationSyN.sh -d 3 -f $std -m dti_FA_thr.nii.gz -t s \
+                       -o $output_dir/${subj}_ -n 4
+
+rm dti*
