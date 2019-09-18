@@ -10,7 +10,7 @@
 
 tp=2011
 root=/project/3015006.07
-project=$root/JT/vbm_${tp}/
+project=$root/JT/tbss_${tp}/
 
 cd $project
 
