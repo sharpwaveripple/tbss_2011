@@ -10,11 +10,11 @@
 
 tp=2011
 root=/project/3015006.07
-project=$root/JT/vbm_${tp}/
+project=$root/JT/tbss_${tp}/
 
 cd $project
 
-randomise -i nlin_template/smoothed_8mm/t1w_8mm_merged.nii.gz \
+randomise -i nlin_template/dti_Warped_merged.nii.gz \
           -o randomise/AEStotal \
           -d scripts/design.mat -t scripts/design.con \
-          -n 2000 -T -m gm.nii.gz
+          -n 2000 -T -m wm.nii.gz
