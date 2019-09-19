@@ -1,0 +1,120 @@
+#!/bin/bash
+
+#PBS -N concat_imgs
+#PBS -q batch
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=48:00:00
+#PBS -l mem=32gb
+#PBS -j oe
+#PBS -o /home/mrphys/jontay/tmp
+
+tp=2011
+root=/project/3015006.07
+project=$root/JT/tbss_${tp}/
+
+cd $project/nlin_template/
+
+fslmerge -t dti_Warped_merged 001_Warped.nii.gz 002_Warped.nii.gz 004_Warped.nii.gz \
+    006_Warped.nii.gz 008_Warped.nii.gz 011_Warped.nii.gz \
+    012_Warped.nii.gz 013_Warped.nii.gz 014_Warped.nii.gz \
+    015_Warped.nii.gz 016_Warped.nii.gz 017_Warped.nii.gz \
+    020_Warped.nii.gz 025_Warped.nii.gz 026_Warped.nii.gz \
+    027_Warped.nii.gz 028_Warped.nii.gz 030_Warped.nii.gz \
+    033_Warped.nii.gz 035_Warped.nii.gz 036_Warped.nii.gz \
+    037_Warped.nii.gz 040_Warped.nii.gz 041_Warped.nii.gz \
+    042_Warped.nii.gz 043_Warped.nii.gz 044_Warped.nii.gz \
+    046_Warped.nii.gz 048_Warped.nii.gz 049_Warped.nii.gz \
+    050_Warped.nii.gz 052_Warped.nii.gz 053_Warped.nii.gz \
+    058_Warped.nii.gz 059_Warped.nii.gz 061_Warped.nii.gz \
+    062_Warped.nii.gz 065_Warped.nii.gz 067_Warped.nii.gz \
+    070_Warped.nii.gz 071_Warped.nii.gz 072_Warped.nii.gz \
+    073_Warped.nii.gz 074_Warped.nii.gz 075_Warped.nii.gz \
+    077_Warped.nii.gz 078_Warped.nii.gz 080_Warped.nii.gz \
+    081_Warped.nii.gz 083_Warped.nii.gz 084_Warped.nii.gz \
+    085_Warped.nii.gz 086_Warped.nii.gz 087_Warped.nii.gz \
+    090_Warped.nii.gz 091_Warped.nii.gz 092_Warped.nii.gz \
+    094_Warped.nii.gz 096_Warped.nii.gz 097_Warped.nii.gz \
+    099_Warped.nii.gz 100_Warped.nii.gz 101_Warped.nii.gz \
+    106_Warped.nii.gz 107_Warped.nii.gz 108_Warped.nii.gz \
+    110_Warped.nii.gz 112_Warped.nii.gz 113_Warped.nii.gz \
+    114_Warped.nii.gz 116_Warped.nii.gz 117_Warped.nii.gz \
+    119_Warped.nii.gz 121_Warped.nii.gz 123_Warped.nii.gz \
+    124_Warped.nii.gz 125_Warped.nii.gz 127_Warped.nii.gz \
+    128_Warped.nii.gz 129_Warped.nii.gz 130_Warped.nii.gz \
+    131_Warped.nii.gz 133_Warped.nii.gz 135_Warped.nii.gz \
+    136_Warped.nii.gz 137_Warped.nii.gz 139_Warped.nii.gz \
+    140_Warped.nii.gz 141_Warped.nii.gz 142_Warped.nii.gz \
+    143_Warped.nii.gz 146_Warped.nii.gz 147_Warped.nii.gz \
+    148_Warped.nii.gz 152_Warped.nii.gz 153_Warped.nii.gz \
+    154_Warped.nii.gz 155_Warped.nii.gz 156_Warped.nii.gz \
+    158_Warped.nii.gz 159_Warped.nii.gz 161_Warped.nii.gz \
+    162_Warped.nii.gz 163_Warped.nii.gz 166_Warped.nii.gz \
+    169_Warped.nii.gz 172_Warped.nii.gz 173_Warped.nii.gz \
+    175_Warped.nii.gz 176_Warped.nii.gz 177_Warped.nii.gz \
+    178_Warped.nii.gz 183_Warped.nii.gz 186_Warped.nii.gz \
+    190_Warped.nii.gz 193_Warped.nii.gz 195_Warped.nii.gz \
+    199_Warped.nii.gz 200_Warped.nii.gz 202_Warped.nii.gz \
+    205_Warped.nii.gz 206_Warped.nii.gz 207_Warped.nii.gz \
+    209_Warped.nii.gz 210_Warped.nii.gz 212_Warped.nii.gz \
+    213_Warped.nii.gz 214_Warped.nii.gz 215_Warped.nii.gz \
+    217_Warped.nii.gz 218_Warped.nii.gz 219_Warped.nii.gz \
+    220_Warped.nii.gz 223_Warped.nii.gz 225_Warped.nii.gz \
+    226_Warped.nii.gz 227_Warped.nii.gz 228_Warped.nii.gz \
+    229_Warped.nii.gz 230_Warped.nii.gz 231_Warped.nii.gz \
+    232_Warped.nii.gz 233_Warped.nii.gz 234_Warped.nii.gz \
+    237_Warped.nii.gz 238_Warped.nii.gz 239_Warped.nii.gz \
+    242_Warped.nii.gz 243_Warped.nii.gz 244_Warped.nii.gz \
+    245_Warped.nii.gz 247_Warped.nii.gz 248_Warped.nii.gz \
+    249_Warped.nii.gz 252_Warped.nii.gz 254_Warped.nii.gz \
+    256_Warped.nii.gz 257_Warped.nii.gz 259_Warped.nii.gz \
+    260_Warped.nii.gz 263_Warped.nii.gz 265_Warped.nii.gz \
+    266_Warped.nii.gz 267_Warped.nii.gz 271_Warped.nii.gz \
+    272_Warped.nii.gz 274_Warped.nii.gz 275_Warped.nii.gz \
+    276_Warped.nii.gz 277_Warped.nii.gz 278_Warped.nii.gz \
+    281_Warped.nii.gz 284_Warped.nii.gz 286_Warped.nii.gz \
+    288_Warped.nii.gz 289_Warped.nii.gz 290_Warped.nii.gz \
+    291_Warped.nii.gz 292_Warped.nii.gz 295_Warped.nii.gz \
+    296_Warped.nii.gz 297_Warped.nii.gz 298_Warped.nii.gz \
+    303_Warped.nii.gz 306_Warped.nii.gz 307_Warped.nii.gz \
+    308_Warped.nii.gz 309_Warped.nii.gz 310_Warped.nii.gz \
+    311_Warped.nii.gz 312_Warped.nii.gz 314_Warped.nii.gz \
+    317_Warped.nii.gz 318_Warped.nii.gz 319_Warped.nii.gz \
+    321_Warped.nii.gz 322_Warped.nii.gz 323_Warped.nii.gz \
+    325_Warped.nii.gz 326_Warped.nii.gz 327_Warped.nii.gz \
+    330_Warped.nii.gz 331_Warped.nii.gz 333_Warped.nii.gz \
+    335_Warped.nii.gz 336_Warped.nii.gz 337_Warped.nii.gz \
+    339_Warped.nii.gz 340_Warped.nii.gz 341_Warped.nii.gz \
+    342_Warped.nii.gz 344_Warped.nii.gz 347_Warped.nii.gz \
+    348_Warped.nii.gz 351_Warped.nii.gz 352_Warped.nii.gz \
+    353_Warped.nii.gz 356_Warped.nii.gz 357_Warped.nii.gz \
+    358_Warped.nii.gz 361_Warped.nii.gz 362_Warped.nii.gz \
+    363_Warped.nii.gz 364_Warped.nii.gz 365_Warped.nii.gz \
+    366_Warped.nii.gz 367_Warped.nii.gz 368_Warped.nii.gz \
+    369_Warped.nii.gz 371_Warped.nii.gz 375_Warped.nii.gz \
+    377_Warped.nii.gz 378_Warped.nii.gz 379_Warped.nii.gz \
+    383_Warped.nii.gz 384_Warped.nii.gz 386_Warped.nii.gz \
+    387_Warped.nii.gz 388_Warped.nii.gz 389_Warped.nii.gz \
+    394_Warped.nii.gz 397_Warped.nii.gz 398_Warped.nii.gz \
+    399_Warped.nii.gz 401_Warped.nii.gz 402_Warped.nii.gz \
+    403_Warped.nii.gz 404_Warped.nii.gz 405_Warped.nii.gz \
+    406_Warped.nii.gz 408_Warped.nii.gz 410_Warped.nii.gz \
+    414_Warped.nii.gz 417_Warped.nii.gz 419_Warped.nii.gz \
+    420_Warped.nii.gz 422_Warped.nii.gz 424_Warped.nii.gz \
+    426_Warped.nii.gz 427_Warped.nii.gz 428_Warped.nii.gz \
+    429_Warped.nii.gz 430_Warped.nii.gz 431_Warped.nii.gz \
+    432_Warped.nii.gz 436_Warped.nii.gz 438_Warped.nii.gz \
+    439_Warped.nii.gz 442_Warped.nii.gz 443_Warped.nii.gz \
+    444_Warped.nii.gz 445_Warped.nii.gz 446_Warped.nii.gz \
+    451_Warped.nii.gz 455_Warped.nii.gz 456_Warped.nii.gz \
+    457_Warped.nii.gz 459_Warped.nii.gz 462_Warped.nii.gz \
+    463_Warped.nii.gz 465_Warped.nii.gz 466_Warped.nii.gz \
+    467_Warped.nii.gz 469_Warped.nii.gz 470_Warped.nii.gz \
+    471_Warped.nii.gz 472_Warped.nii.gz 477_Warped.nii.gz \
+    479_Warped.nii.gz 482_Warped.nii.gz 483_Warped.nii.gz \
+    485_Warped.nii.gz 488_Warped.nii.gz 496_Warped.nii.gz \
+    497_Warped.nii.gz 498_Warped.nii.gz 500_Warped.nii.gz \
+    501_Warped.nii.gz 503_Warped.nii.gz 504_Warped.nii.gz \
+    505_Warped.nii.gz 506_Warped.nii.gz 507_Warped.nii.gz \
+    509_Warped.nii.gz 510_Warped.nii.gz 512_Warped.nii.gz \
+    513_Warped.nii.gz 515_Warped.nii.gz 518_Warped.nii.gz \
+    519_Warped.nii.gz 520_Warped.nii.gz
