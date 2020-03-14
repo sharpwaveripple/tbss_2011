@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#PBS -N randomise
+#PBS -q verylong
+#PBS -l nodes=1:ppn=1
+#PBS -l walltime=72:00:00
+#PBS -l mem=32gb
+#PBS -j oe
+#PBS -o /home/mrphys/jontay/tmp
+
+tp=2011
+root=/project/3015006.07
+project=$root/JT/tbss_${tp}/
+
+cd $project
+
+randomise -i nlin_template/dti_Warped_merged.nii.gz \
+        -o randomise/apathy \
+        -d scripts/matrices/apathy.mat \
+        -t scripts/contrasts/3cov.con \
+        -n 5000 -T -m wm.nii.gz
